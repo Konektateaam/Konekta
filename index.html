@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konekta - Plataforma de Pedidos</title>
+  <style>
+    :root {
+      --verde-oliva: #3d4d2d;
+      --verde-oscuro: #2f3b1f;
+      --fondo: #f2f4f1;
+      --blanco: #ffffff;
+      --gris-claro: #e6e6e6;
+      --gris-texto: #444;
+      --borde-suave: 12px;
+      --error: #cc0000;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(to bottom, #f2f4f1 0%, #dfe5db 100%);
+      color: var(--gris-texto);
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+      background-size: cover;
+      color: var(--blanco);
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 4rem;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--verde-oliva);
+      font-size: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--verde-oliva);
+      padding-left: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-container {
+      background-color: var(--blanco);
+      padding: 3rem;
+      border-radius: var(--borde-suave);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      margin-top: 3rem;
+    }
+
+    label, input, select {
+      display: block;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    input, select {
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fdfdfd;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .error-message {
+      color: var(--error);
+      font-size: 0.9rem;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: var(--verde-oliva);
+      color: var(--blanco);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--verde-oscuro);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+      background-color: var(--gris-claro);
+      color: #333;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Konekta</h1>
+    <p>Centraliza tus pedidos a proveedores locales. Fácil, rápido e intuitivo.</p>
+  </header>
+
+  <section>
+    <h2>¿Qué es <span class="highlight">Konekta</span>?</h2>
+    <p>Konekta es una plataforma que une establecimientos como restaurantes, hoteles o tiendas con proveedores locales de forma sencilla. Ahorra tiempo, gestiona tus pedidos desde un solo lugar y mantén todo bajo control.</p>
+
+    <h2>Funcionalidades clave</h2>
+    <ul>
+      <li>Catálogo digital por proveedor</li>
+      <li>Pedidos rápidos y recurrentes</li>
+      <li>Seguimiento de pedidos en tiempo real</li>
+      <li>Historial y control de facturación</li>
+      <li>Canal de comunicación directo con proveedores</li>
+    </ul>
+
+    <h2>¿Quieres probarlo primero?</h2>
+    <p>Déjanos tus datos y te avisaremos cuando estemos listos para lanzar la versión de prueba.</p>
+
+    <div class="form-container">
+      <form id="formulario" action="https://formspree.io/f/mjkwoqbj" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+        <div class="error-message" id="error-nombre"></div>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" id="email" required>
+        <div class="error-message" id="error-email"></div>
+
+        <label for="tipo">Tipo de usuario</label>
+        <select name="tipo" id="tipo" required>
+          <option value="">Selecciona una opción</option>
+          <option value="establecimiento">Establecimiento</option>
+          <option value="proveedor">Proveedor</option>
+        </select>
+        <div class="error-message" id="error-tipo"></div>
+
+        <label for="zona">Zona de operación</label>
+        <input type="text" name="zona" id="zona" placeholder="Ej. Andorra la Vella" required>
+        <div class="error-message" id="error-zona"></div>
+
+        <input type="hidden" name="_redirect" value="https://konektateeam.github.io/Konekta/gracias.html">
+
+        <button type="submit">Quiero unirme</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Konekta - Todos los derechos reservados
+  </footer>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+      let valido = true;
+
+      const nombre = document.getElementById("nombre");
+      const email = document.getElementById("email");
+      const tipo = document.getElementById("tipo");
+      const zona = document.getElementById("zona");
+
+      document.getElementById("error-nombre").textContent = nombre.value.trim() ? "" : "Este campo es obligatorio.";
+      document.getElementById("error-email").textContent = email.validity.valid ? "" : "Introduce un correo válido.";
+      document.getElementById("error-tipo").textContent = tipo.value ? "" : "Selecciona una opción.";
+      document.getElementById("error-zona").textContent = zona.value.trim() ? "" : "Este campo es obligatorio.";
+
+      if (!nombre.value.trim() || !email.validity.valid || !tipo.value || !zona.value.trim()) {
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
