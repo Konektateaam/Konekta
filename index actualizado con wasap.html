@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Konekta - Plataforma de Pedidos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f4f1;
+      color: #2f3b1f;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #3d4d2d;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input:invalid, select:invalid {
+      border-color: #cc0000;
+      background-color: #fff6f6;
+    }
+
+    .error {
+      color: #cc0000;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: #3d4d2d;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2f3b1f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Konekta</h1>
+  <form id="formulario" method="POST" action="https://formspree.io/f/mjkwoqbj">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <div id="error-nombre" class="error"></div>
+
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" required>
+    <div id="error-email" class="error"></div>
+
+    <label for="tipo">Tipo de usuario</label>
+    <select id="tipo" name="tipo" required>
+      <option value="">Selecciona una opción</option>
+      <option value="Establecimiento">Establecimiento</option>
+      <option value="Proveedor">Proveedor</option>
+    </select>
+    <div id="error-tipo" class="error"></div>
+
+    <label for="zona">Zona de operación</label>
+    <input type="text" id="zona" name="zona" required>
+    <div id="error-zona" class="error"></div>
+
+    <input type="hidden" name="_redirect" value="https://konektateeam.github.io/Konekta/gracias.html">
+    <button type="submit">Quiero unirme</button>
+  </form>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      const nombre = document.getElementById('nombre');
+      const email = document.getElementById('email');
+      const tipo = document.getElementById('tipo');
+      const zona = document.getElementById('zona');
+      let valido = true;
+
+      document.getElementById('error-nombre').textContent = nombre.value ? '' : 'Campo obligatorio';
+      document.getElementById('error-email').textContent = email.validity.valid ? '' : 'Introduce un correo válido';
+      document.getElementById('error-tipo').textContent = tipo.value ? '' : 'Campo obligatorio';
+      document.getElementById('error-zona').textContent = zona.value ? '' : 'Campo obligatorio';
+
+      if (!nombre.value || !email.validity.valid || !tipo.value || !zona.value) {
+        e.preventDefault();
+        valido = false;
+      }
+
+      if (valido) {
+        const mensaje = `🟢 Nueva inscripción en Konekta: ${nombre.value} (${tipo.value} – ${zona.value})`;
+        const telefono = '34627047526';
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+      }
+    });
+  </script>
+</body>
+</html>
