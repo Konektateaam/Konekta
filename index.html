@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konekta - Plataforma de Pedidos</title>
+  <style>
+    :root {
+      --verde-oliva: #3d4d2d;
+      --verde-oscuro: #2f3b1f;
+      --fondo: #f2f4f1;
+      --blanco: #ffffff;
+      --gris-claro: #e6e6e6;
+      --gris-texto: #444;
+      --borde-suave: 12px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      color: var(--gris-texto);
+      scroll-behavior: smooth;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+      background-size: cover;
+      color: var(--blanco);
+      padding: 7rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 4rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    header p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .visual-divider {
+      height: 60px;
+      background: linear-gradient(135deg, #3d4d2d11 25%, transparent 25%, transparent 50%, #3d4d2d11 50%, #3d4d2d11 75%, transparent 75%, transparent);
+      background-size: 40px 40px;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background: linear-gradient(to top left, #ffffff, #f5f5f5);
+      border-radius: var(--borde-suave);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    section::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, var(--verde-oliva) 10%, transparent 70%);
+      opacity: 0.2;
+      z-index: 0;
+    }
+    h2 {
+      color: var(--verde-oliva);
+      font-size: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--verde-oliva);
+      padding-left: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    p, li {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    .highlight {
+      color: var(--verde-oscuro);
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .form-container {
+      background-color: var(--blanco);
+      padding: 3rem;
+      border-radius: var(--borde-suave);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    label, input, select, textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+    input, select, textarea {
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fefefe;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+    button {
+      background-color: var(--verde-oliva);
+      color: var(--blanco);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: var(--verde-oscuro);
+      transform: scale(1.03);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+      background-color: var(--gris-claro);
+      color: #333;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Konekta</h1>
+    <p>Centraliza tus pedidos a proveedores locales. Fácil, rápido e intuitivo.</p>
+  </header>
+
+  <div class="visual-divider"></div>
+
+  <section>
+    <h2>¿Qué es <span class="highlight">Konekta</span>?</h2>
+    <p>Konekta es una plataforma que une establecimientos como restaurantes, hoteles o tiendas con proveedores locales de forma sencilla. Ahorra tiempo, gestiona tus pedidos desde un solo lugar y mantén todo bajo control.</p>
+
+    <h2>Funcionalidades clave</h2>
+    <ul>
+      <li>Catálogo digital por proveedor</li>
+      <li>Pedidos rápidos y recurrentes</li>
+      <li>Seguimiento de pedidos en tiempo real</li>
+      <li>Historial y control de facturación</li>
+      <li>Canal de comunicación directo con proveedores</li>
+    </ul>
+
+    <h2>¿Quieres probarlo primero?</h2>
+    <p>Déjanos tus datos y te avisaremos cuando estemos listos para lanzar la versión de prueba.</p>
+
+    <div class="form-container">
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" id="email" required>
+        <label for="tipo">Tipo de usuario</label>
+        <select name="tipo" id="tipo">
+          <option value="establecimiento">Establecimiento</option>
+          <option value="proveedor">Proveedor</option>
+        </select>
+        <label for="zona">Zona de operación</label>
+        <input type="text" name="zona" id="zona" placeholder="Ej. Andorra la Vella">
+        <button type="submit">Quiero unirme</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Konekta - Todos los derechos reservados
+  </footer>
+</body>
+</html>
