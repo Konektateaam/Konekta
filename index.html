@@ -176,7 +176,7 @@
     <p>Déjanos tus datos y te avisaremos cuando estemos listos para lanzar la versión de prueba.</p>
 
     <div class="form-container">
-      <form action="https://formspree.io/f/mjkwoqbj" method="POST" redirect="https://konektateeam.github.io/Konekta/gracias.html">
+    <form action="https://formspree.io/f/mjkwoqbj" method="POST">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre" required>
         <label for="email">Correo electrónico</label>
@@ -188,6 +188,7 @@
         </select>
         <label for="zona">Zona de operación</label>
         <input type="text" name="zona" id="zona" placeholder="Ej. Andorra la Vella">
+        <input type="hidden" name="_redirect" value="https://konektateeam.github.io/Konekta/gracias.html">
         <button type="submit">Quiero unirme</button>
       </form>
     </div>
